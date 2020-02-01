@@ -1,11 +1,16 @@
 package com.example.foodapp.Fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -15,10 +20,10 @@ import com.example.foodapp.R;
 public class UserFragment extends Fragment {
     User user;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    ProgressBar progressBar;
+    Button btnTextView;
+    Button btn2;
+    int progress = 0;
     private OnFragmentInteractionListener mListener;
 
     public UserFragment() {
@@ -45,8 +50,31 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_user,container,false);
+
+        progressBar = view.findViewById(R.id.determinateBar);
+        btnTextView = view.findViewById(R.id.btn);
+        btn2 = view.findViewById(R.id.btn2);
+        btn2.setVisibility(View.GONE);
+
+        btnTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progress+=20;
+                progressBar.setProgress(progress);
+
+                if(progress == 100){
+                    btnTextView.setText("Collect Certificate");
+                    progress = 0;
+                    btnTextView.setVisibility(View.GONE);
+                    btn2.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
