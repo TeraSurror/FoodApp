@@ -3,6 +3,7 @@
     package="com.example.foodapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.location.gps" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -10,7 +11,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -22,14 +23,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Slum_Input"></activity>
+
         <service
             android:name=".services.LocationBgService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".register"></activity>
-        <activity android:name=".DonorFoodDetails"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".register" />
+        <activity android:name=".DonorFoodDetails" />
+        <activity android:name=".accept_volunteer" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

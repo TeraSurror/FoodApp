@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Loc_Name"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:layout_margin="5dp"
                 android:id="@+id/name"
                 android:layout_below="@id/nameHolder"/>
@@ -43,44 +43,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:layout_margin="5dp"
                 android:id="@+id/distance"
                 android:text="DIST"
                 android:layout_below="@id/distHolder"
                 android:layout_alignParentRight="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date and Time"
-                android:id="@+id/datetimeHolder"
-                android:textSize="10sp"
-                android:layout_below="@id/name"
-                android:layout_margin="10dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/datetime"
-                android:text="DATE_TIME"
-                android:textSize="20sp"
-                android:layout_margin="5dp"
-                android:layout_below="@id/datetimeHolder"/>
-
-            <Button
-                android:id="@+id/volunteer"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="10dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignBaseline="@id/datetime"
-                android:background="@drawable/button"
-                android:textSize="15sp"
-                android:text="Volunteer"
-                android:textColor="#ffffff"
-                android:textColorHint="#ffffff" />
-
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
