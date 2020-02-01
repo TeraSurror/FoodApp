@@ -24,7 +24,7 @@ public class DonorFoodDetails extends AppCompatActivity {
     }
 
     public void onAddItemClick (View view) {
-        inputListWrapper = findViewById(R.id.InputWrapper);
+        inputListWrapper = findViewById(R.id.inputWrapper);
         inputItem  = findViewById(R.id.inputItem);
 
         inputListWrapper.addView(inputItem);
