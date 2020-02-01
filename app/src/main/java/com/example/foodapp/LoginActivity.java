@@ -161,4 +161,9 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+
+    public void onDonorClick(View view){
+
+    }
+
 }
