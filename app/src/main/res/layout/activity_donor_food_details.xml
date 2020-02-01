@@ -22,7 +22,8 @@
             android:textSize="10pt"
             android:textAlignment="center"
             android:paddingTop="20dp"
-            android:paddingBottom="20dp">
+            android:paddingBottom="20dp"
+            android:onClick="onAddItemClick">
         </TextView>
 
         <Button
@@ -34,11 +35,11 @@
             android:text="Add Food Item"/>
 
         <LinearLayout
-            android:id="@+id/InputWrapper"
+            android:id="@+id/inputWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/inputItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +63,7 @@
                     android:layout_weight="0.2"/>
 
 
-            </LinearLayout>
+            </LinearLayout>-->
         </LinearLayout>
 
 
