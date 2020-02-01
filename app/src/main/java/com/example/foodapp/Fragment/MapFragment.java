@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.example.foodapp.R;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.net.PlacesClient;
 
 public class MapFragment extends Fragment {
 
@@ -36,6 +38,15 @@ public class MapFragment extends Fragment {
             //mParam1 = getArguments().getString(ARG_PARAM1);
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        String apiKey = "AIzaSyCpHEo4v7i05ywxYp2FBUoEIz4tsHr0N8A";
+        // Initialize the SDK
+        Places.initialize(getActivity(),apiKey);
+
+// Create a new Places client instance
+        PlacesClient placesClient = Places.createClient(getActivity());
+
+
+
     }
 
     @Override
