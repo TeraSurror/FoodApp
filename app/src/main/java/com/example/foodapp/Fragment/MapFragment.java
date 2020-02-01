@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -17,6 +19,10 @@ public class MapFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
+    Button button;
+    TextView textView;
+    int VALUE = 1;
 
     private OnFragmentInteractionListener mListener;
 
@@ -42,16 +48,18 @@ public class MapFragment extends Fragment {
         // Initialize the SDK
         Places.initialize(getActivity(),apiKey);
 
-// Create a new Places client instance
+        // Create a new Places client instance
         PlacesClient placesClient = Places.createClient(getActivity());
-
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_map, container, false);
     }

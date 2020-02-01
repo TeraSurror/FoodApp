@@ -22,6 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.google.android.API_KEY" android:value="AIzaSyCpHEo4v7i05ywxYp2FBUoEIz4tsHr0N8A"/>
+
         <service
             android:name=".services.LocationBgService"
             android:enabled="true"
