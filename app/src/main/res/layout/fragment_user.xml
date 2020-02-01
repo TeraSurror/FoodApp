@@ -99,19 +99,23 @@
 
         <Button
             android:id="@+id/btn"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Job Done"
-            android:layout_gravity="center"/>
+            android:layout_margin="15dp"
+            android:background="@drawable/button"
+            android:textColor="#ffff"
+            android:text="Job Done"/>
 
         <Button
             android:id="@+id/btn2"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Get Certificate"
-            android:layout_gravity="center"/>
+            android:layout_margin="15dp"
+            android:background="@drawable/button"
+            android:textColor="#ffff"
+            android:text="Get Certificate"/>
     </LinearLayout>
 
 
