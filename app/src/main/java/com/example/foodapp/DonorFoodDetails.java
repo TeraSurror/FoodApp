@@ -16,9 +16,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.foodapp.Models.donations;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,16 +34,20 @@ public class DonorFoodDetails extends AppCompatActivity {
 
 
 
-    private DatabaseReference mDatabase;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_food_details);
-        mDatabase = FirebaseDatabase.getInstance().getReference("donations");
 
+
+    }
+
+    public void writeDonation(String name,String contact,String desc,String note,Integer novol){
+        DatabaseReference donation = FirebaseDatabase.getInstance().getReference().child("donations");
+        String key = donation.push().getKey();
+        String dateTime = DateFormat.getDateTimeInstance().format(new Date());
+        donation.push().setValue(new donations(contact,desc,0.0,0.0,name,novol,dateTime));
     }
 
     public void onPostBtnClicked(View view){
@@ -66,40 +73,7 @@ public class DonorFoodDetails extends AppCompatActivity {
         String tet = userContactIn+userNameIn+userNotIn;
         Toast.makeText(getApplicationContext(),tet,Toast.LENGTH_SHORT).show();
 
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response) {
-                        // response
-                        Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
-                    }
-                },
-                new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // error
-                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
-                        Log.d("Error.Response", error.toString());
-                    }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<String, String>();
-                params.put("name", userNameIn);
-                params.put("contact", userContactIn);
-                params.put("desc",foodDescIn);
-                params.put("note",userNotIn);
-
-                return params;
-            }
-        };
-
-        RequestQueue queue = Volley.newRequestQueue(this); // this = context
-        queue.add(postRequest);
+        writeDonation(userNameIn,userContactIn,foodDescIn,userNotIn,4);
     }
 
 }
