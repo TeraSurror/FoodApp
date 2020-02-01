@@ -14,5 +14,13 @@ public class donations implements Serializable {
     public Integer novol;
     public String currentTime;
 
-    public donations(){}
+    public donations(String contact, String desc, Double lat, Double lon, String name, Integer novol, String currentTime) {
+        this.contact = contact;
+        this.desc = desc;
+        this.lat = lat;
+        this.lon = lon;
+        this.name = name;
+        this.novol = novol;
+        this.currentTime = currentTime;
+    }
 }
