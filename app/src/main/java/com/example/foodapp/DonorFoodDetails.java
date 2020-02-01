@@ -24,10 +24,10 @@ public class DonorFoodDetails extends AppCompatActivity {
     }
 
     public void onAddItemClick (View view) {
-        //inputListWrapper = findViewById(R.id.InputWrapper);
-        //inputItem  = findViewById(R.id.inputItem);
+        inputListWrapper = findViewById(R.id.InputWrapper);
+        inputItem  = findViewById(R.id.inputItem);
 
-        //inputListWrapper.addView(inputItem);
+        inputListWrapper.addView(inputItem);
 
     }
 }
