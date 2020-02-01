@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FoodApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_user">User</string>
+    <string name="title_first_aid">Map</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
