@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="16dp"
     tools:context=".Fragment.UserFragment">
 
     <ImageView
@@ -13,7 +13,8 @@
         android:layout_marginBottom="20dp"
         android:id="@+id/profileScreen"
         android:layout_width="150dp"
-        android:layout_height="150dp" />
+        android:layout_height="150dp"
+        android:src="@drawable/baseline_account_circle_black_48"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,14 +25,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name : "
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Harsh Shelar"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
     </LinearLayout>
 
 
@@ -44,14 +45,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact : "
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
         <TextView
             android:id="@+id/contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="9821856556"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
     </LinearLayout>
 
 
@@ -65,14 +66,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email : "
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="harshshelar22@gmail.com"
-            android:textSize="25dp"/>
+            android:textSize="20dp"/>
     </LinearLayout>
 
 
