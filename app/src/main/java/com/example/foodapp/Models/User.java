@@ -15,7 +15,7 @@ public class User implements Serializable {
 
     }
 
-    public User(String name, String email, Double latitude, Double longitude, Double altitude, String number,String n1,String n2,String no1,String no2,String bloodgroup) {
+    public User(String name, String email, Double latitude, Double longitude, Double altitude, String number) {
         this.name = name;
         this.email = email;
         this.number = number;

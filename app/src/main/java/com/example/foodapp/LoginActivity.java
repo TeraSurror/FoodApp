@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         dialog.setCanceledOnTouchOutside(false);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("296483870054-j1q96n74amfjoaolbromftdnrbiki4s5.apps.googleusercontent.com")
+                .requestIdToken("296483870054-bjrg9prn0juqmrl4ke77imt86cach3am.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
@@ -66,8 +66,6 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
-
-
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
@@ -100,12 +98,12 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 }
                 else{
-                    //currUser = snapshot.getValue(User.class);
+                    currUser = snapshot.getValue(User.class);
                     Log.d("Cuser in loginAct",currUser.name);
                     Log.d("Started from Oncreate","true");
-                    //Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                    //intent.putExtra("curruser",currUser);
-                    //startActivity(intent);
+                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    intent.putExtra("curruser",currUser);
+                    startActivity(intent);
                     finish();
                 }
             }
