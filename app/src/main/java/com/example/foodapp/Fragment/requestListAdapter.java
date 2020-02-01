@@ -15,28 +15,28 @@ import com.example.foodapp.R;
 import java.util.ArrayList;
 
 public class requestListAdapter extends RecyclerView.Adapter<requestListAdapter.MyViewHolder>{
-    public ArrayList<donations> firstAidLocArrayList;
+    public ArrayList<donations> donationsArrayList;
     public Context mContext;
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView name,distance,type;
+        public TextView name,distance,dateTime;
         public RelativeLayout relativeLayout;
 
         public MyViewHolder(View view) {
             super(view);
             name = (TextView)view.findViewById(R.id.name);
-            distance = (TextView)view.findViewById(R.id.distance);
-            type = (TextView)view.findViewById(R.id.type);
+            //distance = (TextView)view.findViewById(R.id.distance);
+            dateTime = (TextView)view.findViewById(R.id.datetime);
             relativeLayout = (RelativeLayout)view.findViewById(R.id.RelativeL);
         }
 
     }
 
-    public requestListAdapter(Context mContext, ArrayList<donations> firstAidLocArrayList) {
+    public requestListAdapter(Context mContext, ArrayList<donations> donationsArrayList) {
         this.mContext = mContext;
-        this.firstAidLocArrayList = firstAidLocArrayList;
+        this.donationsArrayList = donationsArrayList;
     }
 
     @Override
@@ -48,11 +48,11 @@ public class requestListAdapter extends RecyclerView.Adapter<requestListAdapter.
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        /*final firstAidLoc floc = firstAidLocArrayList.get(position);
-        holder.name.setText(floc.name);
-        holder.type.setText(floc.type.toUpperCase());
-        holder.distance.setText(Float.toString(floc.distance)+"m");
-        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+        final donations dont = donationsArrayList.get(position);
+        holder.name.setText(dont.name);
+        holder.dateTime.setText(dont.currentTime.toUpperCase());
+        //holder.distance.setText(Float.toString(floc.distance)+"m");
+        /*holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 confirmationDailog(holder,floc);
@@ -66,7 +66,7 @@ public class requestListAdapter extends RecyclerView.Adapter<requestListAdapter.
 
     @Override
     public int getItemCount() {
-        return firstAidLocArrayList.size();
+        return donationsArrayList.size();
     }
 
 

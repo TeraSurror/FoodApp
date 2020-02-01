@@ -1,17 +1,21 @@
 package com.example.foodapp.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodapp.DonorFoodDetails;
 import com.example.foodapp.Models.donations;
 import com.example.foodapp.R;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +37,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private Button donateButton;
     private requestListAdapter adapter;
     private ArrayList<donations> donationsArrayList;
     private DatabaseReference dbref;
@@ -63,6 +68,13 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home,container,false);
         recyclerView = view.findViewById(R.id.my_recycler_view);
+        donateButton = view.findViewById(R.id.donate);
+        donateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DonorFoodDetails.class));
+            }
+        });
         donationsArrayList = new ArrayList<>();
         setdonationsArrayList();
 
@@ -91,6 +103,8 @@ public class HomeFragment extends Fragment {
 
 
     public void setCustomAdapter(){
+        for(int i=0;i<donationsArrayList.size();i++)
+            Log.d("Home Fragment",donationsArrayList.get(i).name);
         adapter = new requestListAdapter(getActivity(),donationsArrayList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
