@@ -23,4 +23,8 @@ public class donations implements Serializable {
         this.novol = novol;
         this.currentTime = currentTime;
     }
+
+    public donations(){
+
+    }
 }

@@ -67,7 +67,7 @@ public class register extends AppCompatActivity {
         String n = name.getText().toString();
         String e = email.getText().toString();
         String num = number.getText().toString();
-        User user1 = new User(n,e,0.0,0.0,25.0,num);
+        User user1 = new User(n,e,0.0,0.0,num);
 
         return user1;
     }
