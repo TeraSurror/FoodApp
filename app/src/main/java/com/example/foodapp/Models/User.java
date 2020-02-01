@@ -9,13 +9,15 @@ public class User implements Serializable {
     public String number;
     public String email;
     public String token;
+    public Double latitude;
+    public Double longitude;
 
 
     public User(){
 
     }
 
-    public User(String name, String email, Double latitude, Double longitude, Double altitude, String number) {
+    public User(String name, String email, Double latitude, Double longitude, String number) {
         this.name = name;
         this.email = email;
         this.number = number;
@@ -23,6 +25,8 @@ public class User implements Serializable {
         {
             this.token = statics.token;
         }
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
 
