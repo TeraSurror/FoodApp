@@ -18,7 +18,7 @@
             android:id="@+id/TextViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Food Item List"
+            android:text="Donation Item Form"
             android:textSize="10pt"
             android:textAlignment="center"
             android:paddingTop="20dp"
@@ -26,56 +26,43 @@
             android:onClick="onAddItemClick">
         </TextView>
 
-        <Button
-            android:onClick="onAddItemClick"
-            android:id="@+id/addItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginBottom="30dp"
-            android:text="Add Food Item"/>
-
-        <LinearLayout
-            android:id="@+id/inputWrapper"
+        <EditText
+            android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!--<LinearLayout
-                android:id="@+id/inputItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            android:hint="Name"
+            android:inputType="text"/>
 
-                <EditText
-                    android:id="@+id/FoodName"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:hint="Ex : Food Item"
-                    android:inputType="textPersonName"
-                    android:layout_weight="0.8"/>
+        <EditText
+            android:id="@+id/userContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="text"/>
 
+        <EditText
+            android:id="@+id/foodDesc"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Food Desciption"
+            android:inputType="text|textMultiLine"/>
 
-                <EditText
-                    android:id="@+id/FoodQuant"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Ex : 1kg,2L"
-                    android:inputType="textPersonName"
-                    android:layout_weight="0.2"/>
-
-
-            </LinearLayout>-->
-        </LinearLayout>
-
+        <EditText
+            android:id="@+id/userNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Special Note"
+            android:inputType="text"/>
 
 
 
         <Button
+            android:onClick="onPostBtnClicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="20dp"
-            android:text="Save"/>
+            android:layout_marginTop="50dp"
+            android:text="Post Request"/>
 
     </LinearLayout>
 </ScrollView>
