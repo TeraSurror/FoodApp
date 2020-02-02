@@ -2,6 +2,7 @@ package com.example.foodapp.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodapp.Models.HungerSpots;
 import com.example.foodapp.R;
 import com.example.foodapp.Slum_Input;
+import com.example.foodapp.helpingClasses.statics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MapFragment extends Fragment {
     RecyclerView recyclerView;
@@ -83,9 +86,13 @@ public class MapFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot temp : dataSnapshot.getChildren()){
                     HungerSpots hs = temp.getValue(HungerSpots.class);
-                    hungerSpotsArrayList.add(hs);
+                    hs.distance = calcDistance(hs.lat,hs.lon);
+                    if(hs.distance <= 5000)
+                        hungerSpotsArrayList.add(hs);
                 }
+                Collections.sort(hungerSpotsArrayList);
                 setCustomAdapter();
+
             }
 
             @Override
@@ -94,6 +101,13 @@ public class MapFragment extends Fragment {
             }
         });
 
+    }
+
+    public static Double calcDistance(Double lat, Double lon) {
+        float[] result = new float[1];
+        Location.distanceBetween(lat,lon, statics.currLat,statics.currLong,result);
+        Log.d("Distance",Float.toString(result[0]));
+        return (double)Math.round(result[0]*100.0)/100.0;
     }
 
     public void setCustomAdapter(){

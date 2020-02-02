@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodapp.Models.donations;
 import com.example.foodapp.helpingClasses.statics;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,8 +37,11 @@ public class DonorFoodDetails extends AppCompatActivity {
     public void writeDonation(String name,String contact,String desc,String note,Integer novol){
         DatabaseReference donation = FirebaseDatabase.getInstance().getReference().child("donations");
         String key = donation.push().getKey();
-        String dateTime = DateFormat.getDateTimeInstance().format(new Date());
-        donation.push().setValue(new donations(contact,desc, statics.currLat,statics.currLong,name,novol,dateTime));
+        String dateTime = DateFormat.getTimeInstance().format(new Date());
+        String userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        donation.push().setValue(new donations(key,userid,contact,desc, statics.currLat,statics.currLong,name,novol,dateTime));
+        finish();
+
     }
 
     public void onPostBtnClicked(View view){

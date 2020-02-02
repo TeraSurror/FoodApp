@@ -25,8 +25,22 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/button"
+            android:background="@drawable/button_white"
             android:text="Donate"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/pendinDonate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_white"
+            android:text="PendinG Donation"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent" />
 

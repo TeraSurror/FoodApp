@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="3dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/RelativeL"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                android:text="Name"
+                android:id="@+id/nameHolder"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loc_Name"
+                android:textSize="25sp"
+                android:layout_margin="5dp"
+                android:id="@+id/name"
+                android:layout_below="@id/nameHolder"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dist"
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                android:id="@+id/distHolder"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_margin="5dp"
+                android:id="@+id/distance"
+                android:text="DIST"
+                android:layout_below="@id/distHolder"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Number"
+                android:id="@+id/contactHolder"
+                android:textSize="10sp"
+                android:layout_below="@id/name"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact"
+                android:text="Contact_No"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:layout_below="@id/contactHolder"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:id="@+id/emailHolder"
+                android:textSize="10sp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/name"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:text="__EMAIL__"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/emailHolder"/>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

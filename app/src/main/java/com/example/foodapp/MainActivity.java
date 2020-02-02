@@ -33,13 +33,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         serviceIntent = new Intent(MainActivity.this, LocationBgService.class);
         handlePermissions();
         startService(serviceIntent);
         toolBar = getSupportActionBar();
         BottomNavigationView nav = findViewById(R.id.navigation);
         nav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        toolBar.setTitle("Home");
+        Fragment frag = new HomeFragment();
+        loadFragment(frag);
     }
 
     private void handlePermissions() {

@@ -33,6 +33,7 @@ public class Slum_Input extends AppCompatActivity {
                 hungerSpots = new HungerSpots(name.getText().toString(),contact.getText().toString(), statics.currLat,statics.currLong,radiusD);
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("hunger_spots");
                 databaseReference.push().setValue(hungerSpots);
+                finish();
             }
         });
     }

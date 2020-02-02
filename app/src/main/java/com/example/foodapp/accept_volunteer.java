@@ -2,13 +2,16 @@ package com.example.foodapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodapp.Models.donations;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import static com.example.foodapp.Fragment.requestListAdapter.calcDistance;
 
@@ -44,36 +47,19 @@ public class accept_volunteer extends AppCompatActivity {
 
         volunteer = (Button)findViewById(R.id.volunteer);
 
-        /*volunteer.setOnClickListener(new View.OnClickListener() {
+        volunteer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reef = FirebaseDatabase.getInstance().getReference().child("donations").child("121519451");
-                reef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String name = dataSnapshot.child("name").getValue().toString();
-                        String number = dataSnapshot.child("contact").getValue().toString();
-                        String details = dataSnapshot.child("desc").getValue().toString();
-                        String time = dataSnapshot.child("currentTime").getValue().toString();
-                        String location = dataSnapshot.child("lat").getValue().toString();
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                DatabaseReference dbref = FirebaseDatabase.getInstance().getReference()
+                        .child("active_donations").child(currDon.userid).child("volunteers");
+                String key = dbref.push().getKey();
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                dbref.push().setValue(uid);
+                finish();
             }
         });
 
-        public static Double calcDistance(Double lat, Double lon) {
-            float[] result = new float[1];
-            Location.distanceBetween(lat,lon, statics.currLat,statics.currLong,result);
-            Log.d("Distance",Float.toString(result[0]));
-            return (double)Math.round(result[0]*100.0)/100.0;
-        }*/
+        }
 
     }
-}
+

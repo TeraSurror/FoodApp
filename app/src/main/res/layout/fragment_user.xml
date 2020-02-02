@@ -5,15 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
+    android:layout_marginTop="100dp"
     tools:context=".Fragment.UserFragment">
-
-    <ImageView
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/profileScreen"
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,14 +17,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name : "
-            android:textSize="25dp"/>
+            android:textSize="18sp"/>
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Harsh Shelar"
-            android:textSize="25dp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
 
 
@@ -44,14 +37,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact : "
-            android:textSize="25dp"/>
+            android:textSize="18sp"/>
         <TextView
             android:id="@+id/contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="9821856556"
-            android:textSize="25dp"/>
+            android:textSize="18sp"/>
     </LinearLayout>
 
 
@@ -65,28 +58,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email : "
-            android:textSize="25dp"/>
+            android:textSize="18sp"/>
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="harshshelar22@gmail.com"
-            android:textSize="25dp"/>
+            android:text="harshshspelar22@gmail.com"
+            android:textSize="18sp"/>
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Your Progress"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:paddingBottom="10dp"
             android:textAlignment="center"/>
 

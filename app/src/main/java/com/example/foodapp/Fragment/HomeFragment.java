@@ -2,6 +2,7 @@ package com.example.foodapp.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.DonorFoodDetails;
 import com.example.foodapp.Models.donations;
+import com.example.foodapp.PendingDonations;
 import com.example.foodapp.R;
+import com.example.foodapp.helpingClasses.statics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,7 +40,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private Button donateButton;
+    private Button donateButton,pendingDonateButton;
     private requestListAdapter adapter;
     private ArrayList<donations> donationsArrayList;
     private DatabaseReference dbref;
@@ -69,12 +72,20 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home,container,false);
         recyclerView = view.findViewById(R.id.my_recycler_view);
         donateButton = view.findViewById(R.id.donate);
+        pendingDonateButton = view.findViewById(R.id.pendinDonate);
         donateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), DonorFoodDetails.class));
             }
         });
+        pendingDonateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), PendingDonations.class));
+            }
+        });
+
         donationsArrayList = new ArrayList<>();
         setdonationsArrayList();
 
@@ -83,15 +94,20 @@ public class HomeFragment extends Fragment {
     }
 
     public void setdonationsArrayList(){
+        donationsArrayList.clear();
         dbref = FirebaseDatabase.getInstance().getReference().child("donations");
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                donationsArrayList.clear();
                 for(DataSnapshot temp : dataSnapshot.getChildren()){
                     donations don = temp.getValue(donations.class);
-                    donationsArrayList.add(don);
+                    don.distance = calcDistance(don.lat,don.lon);
+                    if(don.distance <= 5000)
+                        donationsArrayList.add(don);
                 }
                 setCustomAdapter();
+
             }
 
             @Override
@@ -99,6 +115,13 @@ public class HomeFragment extends Fragment {
 
             }
         });
+    }
+
+    public static Double calcDistance(Double lat, Double lon) {
+        float[] result = new float[1];
+        Location.distanceBetween(lat,lon, statics.currLat,statics.currLong,result);
+        Log.d("Distance",Float.toString(result[0]));
+        return (double)Math.round(result[0]*100.0)/100.0;
     }
 
 
